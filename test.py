@@ -68,15 +68,17 @@ def queenMoves(coord):
         if j != int(y):
             moves.append(f"{x}{j}")
     for k in range(1, 9):
-        if 97 <= ord(x) + k < 106 and 1 <= int(y) + k < 9:
+        if 97 <= ord(x) + k < 105 and 1 <= int(y) + k < 9:
             moves.append(f"{chr(ord(x) + k)}{int(y) + k}")
-        if 97 <= ord(x) - k < 106 and 1 <= int(y) + k < 9:
+        if 97 <= ord(x) - k < 105 and 1 <= int(y) + k < 9:
             moves.append(f"{chr(ord(x) - k)}{int(y) + k}")
-        if 97 <= ord(x) + k < 106 and 1 <= int(y) - k < 9:
+        if 97 <= ord(x) + k < 105 and 1 <= int(y) - k < 9:
             moves.append(f"{chr(k + ord(x))}{int(y) - k}")
-        if 97 <= ord(x) - k < 106 and 1 <= int(y) - k < 9:
+        if 97 <= ord(x) - k < 105 and 1 <= int(y) - k < 9:
             moves.append(f"{chr(ord(x) - k)}{int(y) - k}")
     return moves
 
 
-a = queenMoves("a1")
+a = queenMoves("h8")
+
+print(a)

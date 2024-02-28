@@ -105,13 +105,13 @@ def queenMoves(coord):
         if j != int(y):
             moves.append(f"{x}{j}")
     for k in range(1, 9):
-        if 97 <= ord(x) + k < 106 and 1 <= int(y) + k < 9:
+        if 97 <= ord(x) + k < 105 and 1 <= int(y) + k < 9:
             moves.append(f"{chr(ord(x) + k)}{int(y) + k}")
-        if 97 <= ord(x) - k < 106 and 1 <= int(y) + k < 9:
+        if 97 <= ord(x) - k < 105 and 1 <= int(y) + k < 9:
             moves.append(f"{chr(ord(x) - k)}{int(y) + k}")
-        if 97 <= ord(x) + k < 106 and 1 <= int(y) - k < 9:
+        if 97 <= ord(x) + k < 105 and 1 <= int(y) - k < 9:
             moves.append(f"{chr(k + ord(x))}{int(y) - k}")
-        if 97 <= ord(x) - k < 106 and 1 <= int(y) - k < 9:
+        if 97 <= ord(x) - k < 105 and 1 <= int(y) - k < 9:
             moves.append(f"{chr(ord(x) - k)}{int(y) - k}")
     return moves
 
@@ -124,11 +124,11 @@ print(coordinate)
 import chess
 
 
-def display(fen):
-    board = chess.Board(fen)
-    print(board)
+# def display(fen):
+#     board = chess.Board(fen)
+#     print(board)
 
 
-fen = "r1bqkb1r/pppp1Qpp/2n2n2/4p3/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 0 4"
+# fen = "r1bqkb1r/pppp1Qpp/2n2n2/4p3/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 0 4"
 
-display(fen)
+# display(fen)
