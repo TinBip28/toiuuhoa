@@ -1,4 +1,4 @@
-def phuong_trinh_map_phang(point1, point2, point3):
+def phuong_trinh_mat_phang(point1, point2, point3):
     x1, y1, z1 = point1
     x2, y2, z2 = point2
     x3, y3, z3 = point3
@@ -29,39 +29,45 @@ def check_cung_mat_phang(tmp):
 
 
 # nhap cac diem
-try:
-    print("nhap vao toa do diem dau tien:")
-    x1 = int(input("nhap vao x1: "))
-    y1 = int(input("nhap vao y1: "))
-    z1 = int(input("nhap vao z1: "))
-    print("nhap vao toa do diem thu hai:")
-    x2 = int(input("nhap vao x2: "))
-    y2 = int(input("nhap vao y2: "))
-    z2 = int(input("nhap vao z2: "))
-    print("nhap vao toa do diem thu ba: ")
-    x3 = int(input("nhap vao x3: "))
-    y3 = int(input("nhap vao y3: "))
-    z3 = int(input("nhap vao z3: "))
+def oxyz_equation():
+    try:
+        print("nhap vao toa do diem dau tien:")
+        x1 = int(input("nhap vao x1: "))
+        y1 = int(input("nhap vao y1: "))
+        z1 = int(input("nhap vao z1: "))
 
-    point1 = (x1, y1, z1)
-    point2 = (x2, y2, z2)
-    point3 = (x3, y3, z3)
+        print("nhap vao toa do diem thu hai:")
+        x2 = int(input("nhap vao x2: "))
+        y2 = int(input("nhap vao y2: "))
+        z2 = int(input("nhap vao z2: "))
 
-    result = phuong_trinh_map_phang(point1, point2, point3)
-    if check_trung == True:
-        print("Cac diem trung nhau")
-    elif check_cung_mat_phang(result) == True:
-        print("Cac diem da nhap vao cung mat phang")
-    else:
-        print(
-            "Phương trình mặt phẳng là: {}x + {}y + {}z = {}".format(
-                result[0], result[1], result[2], result[3]
+        print("nhap vao toa do diem thu ba: ")
+        x3 = int(input("nhap vao x3: "))
+        y3 = int(input("nhap vao y3: "))
+        z3 = int(input("nhap vao z3: "))
+
+        point1 = (x1, y1, z1)
+        point2 = (x2, y2, z2)
+        point3 = (x3, y3, z3)
+
+        result = phuong_trinh_mat_phang(point1, point2, point3)
+        if check_trung == True:
+            print("Cac diem trung nhau")
+        elif check_cung_mat_phang(result) == True:
+            print("Cac diem da nhap vao cung mat phang")
+        else:
+            print(
+                "Phương trình mặt phẳng là: {}x + {}y + {}z = {}".format(
+                    result[0], result[1], result[2], result[3]
+                )
             )
-        )
-        print(
-            "a = {}, b = {}, c = {}, d = {}".format(
-                result[0], result[1], result[2], result[3]
+            print(
+                "a = {}, b = {}, c = {}, d = {}".format(
+                    result[0], result[1], result[2], result[3]
+                )
             )
-        )
-except ValueError:
-    print("Vui long nhap so nguyen")
+    except ValueError:
+        print("Vui long nhap so nguyen")
+
+
+oxyz_equation()
