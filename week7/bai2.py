@@ -54,12 +54,19 @@ def newton_backtracking(f, init, alpha=1, beta=0.8, tol=1e-4, max_iter=1000):
         t = 1
         H = nd.Hessian(f)(x)
         G = nd.Gradient(f)(x)
-        X = x - np.linalg.inv(H) @ G
-        X = x - t * np.linalg.inv(H) @ G
+        V = np.linalg.solve(H, G)
+        F_x = f(x[0], x[1])
+        z = np.dot(G.T, V)
+        X = x - alpha * V
         f_x = f(x)
         while f(X) > f_x - 1 / 2 * t * np.linalg.norm(G) ** 2:
             t *= beta
-            X = x - t * np.linalg.inv(H) @ G
+            X = x - t * alpha * V
         x = X
         point.append([x[0], x[1], f(x)])
     return x, point
+
+
+x, point = newton_backtracking(function, A)
+print("Phương pháp Newton")
+print(f" Cực tiểu của hàm với điểm khởi đầu ({A}):\n x = {x[0], x[1]}")
